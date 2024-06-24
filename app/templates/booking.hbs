@@ -1,0 +1,8 @@
+              <BookingForm
+                @activity={{this.model.activity}}
+                @availabilityDates={{this.model.availabilityDates}}
+                @onConfirm={{this.confirmBooking}}
+              />
+              <div class="button-container">
+                <button type="button" {{on "click" this.goHome}} class="action-button">Go to Home</button>
+              </div>

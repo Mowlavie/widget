@@ -1,0 +1,55 @@
+<div id="msform">
+  <fieldset>
+    <h2 class="fs-title">{{@activity.name}}</h2>
+    <h3 class="fs-subtitle">{{@activity.description}}</h3>
+
+    <div class="form-group">
+      <label>Select Tickets</label>
+      {{#each @activity.tickets as |ticket|}}
+        <div class="form-group">
+          <label>{{ticket.name}} ({{ticket.price.formatted}})</label>
+          <input 
+            type="number" 
+            value={{get this.selectedTickets ticket.id}} 
+            {{on "input" (fn this.updateTickets ticket)}}
+          />
+        </div>
+      {{/each}}
+    </div>
+
+    <div class="form-group">
+      <label>Select Date and Time</label>
+      <input 
+        type="date" 
+        value={{this.selectedDate}} 
+        {{on "change" this.selectDate}} 
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Primary Guest Details</label>
+      <input 
+        type="text" 
+        placeholder="Name" 
+        value={{this.guestName}} 
+        {{on "input" this.updateGuestName}} 
+      />
+      <input 
+        type="email" 
+        placeholder="Email" 
+        value={{this.guestEmail}} 
+        {{on "input" this.updateGuestEmail}} 
+      />
+      <input 
+        type="tel" 
+        placeholder="Phone" 
+        value={{this.guestPhone}} 
+        {{on "input" this.updateGuestPhone}} 
+      />
+    </div>
+
+    <div class="form-footer">
+      <button {{on "click" this.confirmBooking}} class="action-button">Confirm Booking</button>
+    </div>
+  </fieldset>
+</div>

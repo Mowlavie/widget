@@ -1,0 +1,23 @@
+<div class="thank-you-container">
+  <h1>Thank you for your booking!</h1>
+  <p>We have received your booking details and will process them shortly.</p>
+
+  <div class="booking-details-card">
+    <h2>Booking Details:</h2>
+    <ul>
+      <li><strong>Date:</strong> {{this.selectedDate}}</li>
+      <li><strong>Guest Name:</strong> {{this.guestName}}</li>
+      <li><strong>Guest Email:</strong> {{this.guestEmail}}</li>
+      <li><strong>Guest Phone:</strong> {{this.guestPhone}}</li>
+      <li><strong>Tickets:</strong>
+        <ul>
+          {{#each this.parsedTickets as |ticketId count|}}
+            <li>{{ticketId}}: {{count}}</li>
+          {{/each}}
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <button type="button" {{on "click" this.goToBooking}} class="action-button">Go to Booking</button>
+</div>
