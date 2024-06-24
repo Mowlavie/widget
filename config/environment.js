@@ -4,8 +4,8 @@ module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'widget',
     environment,
-    rootURL: '/widget/',
-    locationType: 'hash',
+    rootURL: '/',
+    locationType: 'history',
     EmberENV: {
       EXTEND_PROTOTYPES: false,
       FEATURES: {
@@ -41,8 +41,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = '/widget/';
-    ENV.locationType = 'hash';
+    // here you can enable a production-specific feature
   }
 
   return ENV;
